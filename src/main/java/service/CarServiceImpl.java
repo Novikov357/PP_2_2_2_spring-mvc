@@ -12,7 +12,7 @@ public class CarServiceImpl implements CarService {
     private CarServiceImpl() {
     }
 
-    public static CarServiceImpl getCarService () {
+    public static CarServiceImpl getCarService() {
         if (CAR_SERVICE == null) {
             return new CarServiceImpl();
         }
@@ -29,13 +29,9 @@ public class CarServiceImpl implements CarService {
 
 
     public List<Car> getCars(int num) {
-        if (num > 0) return switch (num) {
-            case 1 -> CARS.subList(0, 1);
-            case 2 -> CARS.subList(0, 2);
-            case 3 -> CARS.subList(0, 3);
-            case 4 -> CARS.subList(0, 4);
-            default -> CARS;
-        }; else {
+        if (num > 0) {
+            return CARS.subList(0, num);
+        } else {
             return new ArrayList<>();
         }
     }
